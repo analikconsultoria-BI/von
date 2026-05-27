@@ -32,29 +32,29 @@ const initVonLab = () => {
         const tl = gsap.timeline();
 
         if (preloader && preloaderLogo) {
-            tl.fromTo(preloaderLogo, 
-                { opacity: 0, scale: 0.3, filter: 'blur(30px)' }, 
+            tl.fromTo(preloaderLogo,
+                { opacity: 0, scale: 0.3, filter: 'blur(30px)' },
                 { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 1.5, ease: 'power2.out' }
             )
-            .to(preloaderLogo, { scale: 15, opacity: 0, filter: 'blur(10px)', duration: 0.8, ease: 'power4.in', delay: 0.6 })
-            .to(preloader, { 
-                opacity: 0, 
-                duration: 0.4, 
-                ease: 'power2.inOut', 
-                onComplete: () => {
-                    preloader.style.display = 'none';
-                    document.body.style.overflow = '';
-                }
-            }, "-=0.2");
-            
-            if (title) tl.fromTo(title, {opacity: 0, y: 30}, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' });
-            if (subtitle) tl.fromTo(subtitle, {opacity: 0, y: 20}, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }, "-=0.7");
-            if (buttons) tl.fromTo(buttons, {opacity: 0, y: 20}, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }, "-=0.7");
+                .to(preloaderLogo, { scale: 15, opacity: 0, filter: 'blur(10px)', duration: 0.8, ease: 'power4.in', delay: 0.6 })
+                .to(preloader, {
+                    opacity: 0,
+                    duration: 0.4,
+                    ease: 'power2.inOut',
+                    onComplete: () => {
+                        preloader.style.display = 'none';
+                        document.body.style.overflow = '';
+                    }
+                }, "-=0.2");
+
+            if (title) tl.fromTo(title, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' });
+            if (subtitle) tl.fromTo(subtitle, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }, "-=0.7");
+            if (buttons) tl.fromTo(buttons, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }, "-=0.7");
         } else {
             document.body.style.overflow = '';
-            if (title) tl.fromTo(title, {opacity: 0, y: 30}, { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 1.5 });
-            if (subtitle) tl.fromTo(subtitle, {opacity: 0, y: 20}, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }, "-=0.7");
-            if (buttons) tl.fromTo(buttons, {opacity: 0, y: 20}, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }, "-=0.7");
+            if (title) tl.fromTo(title, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 1.5 });
+            if (subtitle) tl.fromTo(subtitle, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }, "-=0.7");
+            if (buttons) tl.fromTo(buttons, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }, "-=0.7");
         }
     };
 
@@ -187,48 +187,12 @@ const initVonLab = () => {
         });
     };
 
-    // 10. Mobile bottom drawer for services
-    const initServicesDrawer = () => {
-        const cards = document.querySelectorAll('.service-card');
-        const drawer = document.getElementById('mobile-service-drawer');
-        if (!drawer) return;
-        const overlay = drawer.querySelector('.drawer-overlay');
-        const closeBtn = drawer.querySelector('.drawer-close-btn');
-        const body = drawer.querySelector('.drawer-body');
 
-        const openDrawer = (title, desc) => {
-            if (window.innerWidth >= 768) return; // Only run on mobile
-            body.innerHTML = `
-                <h3>${title}</h3>
-                <p>${desc}</p>
-                <a href="https://wa.link/lbt7x0" target="_blank" class="btn-solid-pink">Solicitar Orçamento ↗</a>
-            `;
-            drawer.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Lock background scroll
-        };
-
-        const closeDrawer = () => {
-            drawer.classList.remove('active');
-            document.body.style.overflow = ''; // Restore scroll
-        };
-
-        cards.forEach(card => {
-            card.addEventListener('click', () => {
-                if (window.innerWidth >= 768) return;
-                const title = card.getAttribute('data-title');
-                const desc = card.getAttribute('data-desc');
-                openDrawer(title, desc);
-            });
-        });
-
-        if (overlay) overlay.addEventListener('click', closeDrawer);
-        if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
-    };
 
     // 11. Scroll Dots Navigation
     const initScrollDots = () => {
         const dots = document.querySelectorAll('.scroll-dot');
-        const sectionIds = ['hero','sec-pain','sec-importance','sec-services','sec-stats','portfolio','sec-process','contato','sec-faq','sec-cta'];
+        const sectionIds = ['hero', 'sec-pain', 'sec-importance', 'sec-services', 'sec-stats', 'portfolio', 'sec-process', 'contato', 'sec-faq', 'sec-cta'];
 
         // Click to jump
         dots.forEach((dot, i) => {
@@ -257,14 +221,87 @@ const initVonLab = () => {
 
     function id(name) { return document.getElementById(name); }
 
+    // Rotating Hero Capsule Text
+    const initHeroRotation = () => {
+        const texts = document.querySelectorAll('.rotating-text');
+        if (!texts.length) return;
+        
+        let currentIndex = 0;
+        
+        setInterval(() => {
+            const current = texts[currentIndex];
+            current.classList.remove('active');
+            current.classList.add('exit');
+            
+            currentIndex = (currentIndex + 1) % texts.length;
+            
+            const next = texts[currentIndex];
+            next.classList.remove('exit');
+            next.classList.add('active');
+            
+            // Reset the previous exit element
+            setTimeout(() => {
+                current.classList.remove('exit');
+            }, 500);
+        }, 2500);
+    };
+
+    const initDiffCardsCarousel = () => {
+        const wrapper = document.querySelector('.diff-cards-wrapper');
+        const container = document.querySelector('.diff-cards-container');
+        const prevBtn = document.querySelector('.diff-control-btn.prev');
+        const nextBtn = document.querySelector('.diff-control-btn.next');
+
+        if (!wrapper || !prevBtn || !nextBtn) return;
+
+        const updateButtons = () => {
+            const scrollLeft = Math.round(wrapper.scrollLeft);
+            const maxScroll = Math.round(wrapper.scrollWidth - wrapper.clientWidth);
+
+            prevBtn.disabled = scrollLeft <= 8;
+            nextBtn.disabled = scrollLeft >= maxScroll - 8;
+        };
+
+        const getScrollAmount = () => {
+            const firstCard = container.querySelector('.diff-card');
+            if (firstCard) {
+                const cardWidth = firstCard.offsetWidth;
+                const gap = parseFloat(window.getComputedStyle(container).gap) || 24;
+                return cardWidth + gap;
+            }
+            return wrapper.clientWidth * 0.75;
+        };
+
+        prevBtn.addEventListener('click', () => {
+            wrapper.scrollBy({
+                left: -getScrollAmount(),
+                behavior: 'smooth'
+            });
+        });
+
+        nextBtn.addEventListener('click', () => {
+            wrapper.scrollBy({
+                left: getScrollAmount(),
+                behavior: 'smooth'
+            });
+        });
+
+        wrapper.addEventListener('scroll', updateButtons);
+        window.addEventListener('resize', updateButtons);
+
+        // Initial setup
+        setTimeout(updateButtons, 150);
+    };
 
     initHeroReveal();
     initScrollAnimations();
     initTopoMap();
     initProjectViewer();
     initFAQ();
-    initServicesDrawer();
+
     initScrollDots();
+    initHeroRotation();
+    initDiffCardsCarousel();
 };
 
 window.onload = initVonLab;
