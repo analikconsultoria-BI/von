@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VON LAB | Portfolio High-End</title>
+
+    <!-- SEO - Hidden from search engines -->
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Archivo:wght@400;500;600&family=Playfair+Display:ital,wght@1,700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <style>
+        :root {
+            --accent: #ff003c;
+            --bg: #000;
+            --fg: #fff;
+            --font-editorial: 'Playfair Display', serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--fg);
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        /* Premium Badge */
+        .workana-exclusive-badge {
+            position: fixed;
+            top: 3rem;
+            right: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.8rem 1.5rem;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.65rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            z-index: 1001;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Minimalist Chic Hero */
+        .hero-workana {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 10%;
+            position: relative;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .hero-workana::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80vw;
+            height: 80vh;
+            background: radial-gradient(circle, rgba(255, 0, 60, 0.05) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 100px;
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(5px);
+        }
+
+        .hero-badge .dot {
+            width: 5px;
+            height: 5px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            line-height: 1.1;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin: 0 0 1.5rem 0;
+        }
+
+        .hero-title .highlight {
+            font-family: var(--font-editorial);
+            font-style: italic;
+            font-weight: 400;
+            color: var(--accent);
+        }
+
+        .hero-desc {
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 650px;
+            margin-bottom: 3.5rem;
+            font-weight: 400;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+        }
+
+
+        /* CTA High-End */
+        .cta-button {
+            margin-top: 4rem;
+            padding: 1.5rem 4rem;
+            background: transparent;
+            color: #fff;
+            border: 1px solid #fff;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            background: #fff;
+            color: #000;
+            padding: 1.5rem 5rem;
+        }
+
+        /* Portfolio Section (Original Style) */
+        .portfolio-section {
+            padding: 6rem 10%;
+            background: #000;
+            color: #fff;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 4rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 2rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 2rem;
+        }
+
+        .p-item {
+            position: relative;
+            overflow: hidden;
+            height: 500px;
+            background: #111;
+        }
+
+        .p-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        .p-item .p-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .p-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .p-item:hover .p-overlay {
+            opacity: 1;
+        }
+
+        .p-title {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .p-desc {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+            max-width: 300px;
+        }
+
+        .p-link {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            letter-spacing: 2px;
+            border-bottom: 1px solid #fff;
+            padding-bottom: 5px;
+        }
+
+        .portfolio-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .portfolio-stack .p-item {
+            height: calc(250px - 1rem);
+        }
+
+        .large {
+            height: 500px;
+        }
+
+        /* Disclaimer Platform */
+        .platform-disclaimer {
+            text-align: center;
+            padding: 8rem 10%;
+            background: #050505;
+        }
+
+        .platform-disclaimer h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .platform-disclaimer p {
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.5;
+            font-size: 1.1rem;
+        }
+
+        /* Custom Cursor */
+        #custom-cursor {
+            width: 10px;
+            height: 10px;
+            background: #fff;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 10000;
+            transition: transform 0.2s ease;
+        }
+
+        .cursor-follower {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.15s ease-out;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .project-info {
+                position: static;
+                width: 100%;
+                padding: 2rem 0;
+                background: transparent;
+                border: none;
+            }
+
+            .hero-boutique h1 {
+                font-size: 4rem;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+        }
+
+        /* Preloader */
+        .von-preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: var(--bg);
+            z-index: 99999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Preloader */
+        .von-preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: var(--bg);
+            z-index: 99999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .von-preloader-logo {
+            width: 350px;
+            max-width: 80vw;
+            height: auto;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="von-preloader">
+        <img src="/logo.png" alt="VON LAB" class="von-preloader-logo">
+    </div>
+
+    <div id="custom-cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <div class="workana-exclusive-badge">Project Selection 2025</div>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero-workana">
+            <div class="hero-content">
+                <div class="hero-badge" data-reveal>
+                    <span class="dot"></span>
+                    Bem-vindo(a) via Workana
+                </div>
+
+                <h1 class="hero-title" data-reveal>
+                    Sua marca,<br>
+                    <span class="highlight">elevada ao estado da arte.</span>
+                </h1>
+
+                <p class="hero-desc" data-reveal>
+                    Se você chegou até aqui, é porque busca algo além do comum. Ofereço desenvolvimento premium,
+                    arquitetura de elite e design pensado para resultados absolutos. Vamos transformar sua ideia em uma
+                    autoridade digital.
+                </p>
+
+                <div class="hero-actions" data-reveal>
+                    <button class="cta-button" onclick="scrollToContact()">Discutir Projeto no Workana</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOBRE A VON (WHITE SECTION WITH WAVES) -->
+        <style>
+            .von-about-white {
+                background: #fff;
+                color: #000;
+                position: relative;
+                padding: 12rem 10%;
+                z-index: 5;
+            }
+
+            .wave-divider {
+                position: absolute;
+                left: 0;
+                width: 100%;
+                line-height: 0;
+                z-index: 6;
+            }
+
+            .wave-top {
+                top: 0;
+                transform: translateY(-99%);
+            }
+
+            .wave-bottom {
+                bottom: 0;
+                transform: translateY(99%) rotate(180deg);
+            }
+
+            .wave-divider svg {
+                display: block;
+                width: calc(100% + 1.3px);
+                height: 120px;
+            }
+
+            .wave-divider .shape-fill {
+                fill: #FFFFFF;
+            }
+
+            .about-text-container {
+                max-width: 900px;
+                margin: 0 auto;
+                text-align: center;
+                position: relative;
+            }
+
+            .about-text-container p {
+                font-size: clamp(1.5rem, 4vw, 2.8rem);
+                line-height: 1.3;
+                font-weight: 500;
+                letter-spacing: -0.02em;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            .inline-logo {
+                height: 1.5em;
+                width: auto;
+                vertical-align: middle;
+                margin-bottom: 10px;
+            }
+
+            .editorial-highlight {
+                font-family: var(--font-editorial);
+                color: var(--accent);
+                font-style: italic;
+            }
+        </style>
+
+        <section class="von-about-white">
+            <div class="wave-divider wave-top">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                    preserveAspectRatio="none">
+                    <path
+                        d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+                        class="shape-fill"></path>
+                </svg>
+            </div>
+
+            <div class="about-text-container" data-reveal>
+                <p>
+                    <span>A <img src="/logo-black.png" alt="VON" class="inline-logo"> é uma empresa nova, fundada em
+                        <span class="editorial-highlight">Maio de 2026</span>, comandada por um experiente
+                        desenvolvedor.</span>
+                    <span>Já realizamos em pouquíssimo tempo <span style="font-weight: 900;">dois projetos de alto
+                            impacto</span>, provando que a agilidade e a precisão técnica são o nosso maior diferencial
+                        competitivo.</span>
+                </p>
+            </div>
+
+            <div class="wave-divider wave-bottom">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                    preserveAspectRatio="none">
+                    <path
+                        d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+                        class="shape-fill"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO -->
+        <section id="trabalho" class="portfolio-section">
+            <div class="section-header">
+                <h2>Portfólio</h2>
+                <span style="font-family: var(--font-editorial); font-size: 1.5rem; opacity: 0.5;">Curadoria de
+                    Impacto</span>
+            </div>
+
+            <div class="portfolio-grid">
+                <!-- Projeto Principal -->
+                <div class="p-item large">
+                    <img src="/assets/vision-md.png" alt="Vision MD">
+                    <div class="p-overlay">
+                        <h3 class="p-title">Vision MD</h3>
+                        <p class="p-desc">Ecossistema de inteligência e dados para a indústria de celulose. Foco em
+                            performance bruta e UX analítica.</p>
+                        <span class="p-link">Ver detalhes →</span>
+                    </div>
+                </div>
+
+                <!-- Stack Lateral -->
+                <div class="portfolio-stack">
+                    <div class="p-item">
+                        <img src="/assets/portfolio-1.png" alt="Data Intelligence">
+                        <div class="p-overlay">
+                            <h3 class="p-title" style="font-size: 1.2rem;">Data Intelligence</h3>
+                            <span class="p-link" style="font-size: 0.8rem;">Explorar →</span>
+                        </div>
+                    </div>
+                    <div class="p-item">
+                        <img src="/assets/portfolio-2.png" alt="E-commerce UX">
+                        <div class="p-overlay">
+                            <h3 class="p-title" style="font-size: 1.2rem;">E-commerce UX</h3>
+                            <span class="p-link" style="font-size: 0.8rem;">Explorar →</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA PLATFORM -->
+        <section id="contato" class="platform-disclaimer">
+            <h2 class="glitch-text">Vamos criar o extraordinário?</h2>
+            <p>
+                Este é um ambiente exclusivo para clientes Workana. Todas as propostas e contratações são processadas
+                via plataforma para garantir total transparência e segurança.
+            </p>
+            <button class="cta-button" style="background: #fff; color: #000; margin-top: 3rem;">
+                Enviar Proposta no Workana
+            </button>
+        </section>
+    </main>
+
+    <footer
+        style="padding: 4rem 10%; border-top: 1px solid rgba(255, 255, 255, 0.05); display: flex; justify-content: space-between; font-size: 0.8rem; opacity: 0.4;">
+        <span>VON LAB © 2025</span>
+        <span>HIGH PERFORMANCE WEB DEVELOPMENT</span>
+    </footer>
+
+    <script type="module">
+        import { gsap } from 'gsap';
+        import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Custom Cursor Logic
+        const cursor = document.getElementById('custom-cursor');
+        const follower = document.querySelector('.cursor-follower');
+
+        document.addEventListener('mousemove', (e) => {
+            gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0 });
+            gsap.to(follower, { x: e.clientX - 20, y: e.clientY - 20, duration: 0.3 });
+        });
+
+        document.querySelectorAll('a, button, .project-card').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                gsap.to(follower, { scale: 2, backgroundColor: 'rgba(255,255,255,0.1)', border: 'none' });
+            });
+            el.addEventListener('mouseleave', () => {
+                gsap.to(follower, { scale: 1, backgroundColor: 'transparent', border: '1px solid rgba(255,255,255,0.3)' });
+            });
+        });
+
+        // Preloader & Reveal Animations
+        const tl = gsap.timeline();
+
+        // Lock scroll during preloader
+        document.body.style.overflow = 'hidden';
+
+        tl.fromTo('.von-preloader-logo', { opacity: 0, scale: 0.3, filter: 'blur(30px)' },
+            { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 1.5, ease: 'power2.out' }
+                        o('.von-preloader-logo', { scale: 15, opacity: 0, filter: 'blur(10px)', duration: 0.8, ease: 'power4.in', delay: 0.6 })
+                .to('.von-preloader', {
+                    opacity: 0
+                  duration: 0., ease: 'power2.inOu'                    onComplete: () = document.querySelector('.von-preloader').style.display = 'n                            document.body.style.overflo                                                      )
+                        .from('.hero-workana', {
+                            scale: 1.1, duration: 1.5, ease: 'power3.o            1")
+                                .from('[d                {
+                     40,
+                                    y: 0,
+                                    n: 1.2,
+                                    ger: 0.2,
+                                    e: 'power3.out'
+            }, "-=0.8");
+
+                    // Parallax for images
+                    gsap.utils.toArray('.project-image img').forEach(img => {
+                        gsap.to(img, {
+                            yPercent: 15,
+                            ease: 'none',
+                            scrollTrigger: {
+                                trigger: img,
+                                start: 'top bottom',
+                                end: 'bottom top',
+                                scrub: true
+                            }
+                        });
+                    });
+
+                    window.scrollToContact = () => {
+                        document.getElementById('contato').scrollIntoView({
+                            behav 's});
+        }
+    </script>
+</body>
+
+</html>

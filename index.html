@@ -4,217 +4,424 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VON LAB | Design & Desenvolvimento de Sites de Alta Performance</title>
-
-    <!-- SEO Básico -->
+    <title>VON LAB | Sites de Alta Conversão & Design Premium</title>
     <meta name="description"
-        content="VON LAB: Especialistas em sites institucionais, e-commerces, landing pages de alta conversão e aplicações sob medida. Design exclusivo e desenvolvimento focado em resultados.">
+        content="VON LAB: Especialistas em sites institucionais, e-commerces, landing pages de alta conversão. Criamos sites para pequenas empresas e autônomos venderem mais.">
     <meta name="keywords"
         content="desenvolvimento de sites, design digital, landing pages, e-commerce, criação de sites, aplicações web, von lab, agência digital, desenvolvimento web brasil">
     <meta name="author" content="VON LAB">
     <meta name="robots" content="index, follow">
-
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://vonlab.co/">
-    <meta property="og:title" content="VON LAB | Design & Desenvolvimento que Imprime Autoridade">
-    <meta property="og:description"
-        content="Criamos sites e aplicações que as pessoas não conseguem ignorar. Especialistas em transformar sua presença digital.">
+    <meta property="og:title" content="VON LAB | Sites de Alta Conversão & Design Premium">
+    <meta property="og:description" content="Criamos sites e aplicações que as pessoas não conseguem ignorar.">
     <meta property="og:image" content="https://vonlab.co/assets/og-image.png">
-
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://vonlab.co/">
     <meta property="twitter:title" content="VON LAB | Design & Desenvolvimento">
     <meta property="twitter:description" content="Especialistas em sites de alta performance e design que converte.">
     <meta property="twitter:image" content="https://vonlab.co/assets/og-image.png">
-
-    <!-- Favicon & Styles -->
     <link rel="stylesheet" href="/src/style.css">
     <link rel="icon" type="image/png" href="/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <!-- Preloader -->
+    <div class="von-preloader">
+        <img src="/logo.png" alt="VON LAB" class="von-preloader-logo">
+    </div>
+
     <div id="custom-cursor"></div>
 
+    <!-- Scroll Navigation Dots -->
+    <nav class="scroll-dots" id="scroll-dots">
+        <div class="scroll-dot active" data-target="hero"></div>
+        <div class="scroll-dot" data-target="sec-pain"></div>
+        <div class="scroll-dot" data-target="sec-importance"></div>
+        <div class="scroll-dot" data-target="sec-services"></div>
+        <div class="scroll-dot" data-target="sec-stats"></div>
+        <div class="scroll-dot" data-target="portfolio"></div>
+        <div class="scroll-dot" data-target="sec-process"></div>
+        <div class="scroll-dot" data-target="contato"></div>
+        <div class="scroll-dot" data-target="sec-faq"></div>
+        <div class="scroll-dot" data-target="sec-cta"></div>
+    </nav>
+
     <main>
-        <!-- 1. HERO -->
-        <section id="hero" class="hero">
-            <canvas id="hero-canvas"></canvas>
-            <div class="hero-overlay">
-                <h1 class="hero-subtitle" id="hero-subtitle">Criamos sites e aplicações que as pessoas não conseguem
-                    ignorar.</h1>
-                <a href="#trabalho" class="btn-outline" id="hero-cta">Ver nosso trabalho</a>
-            </div>
-        </section>
-
-
-        <!-- 3. SOBRE -->
-        <section id="sobre" class="about">
-            <div class="about-container">
-                <div class="about-text">
-                    <p class="about-p1">Não é sobre ter um site bonito. É sobre o que as pessoas sentem quando chegam
-                        até você pela primeira vez, a confiança que aparece antes de ler uma palavra, a vontade de
-                        ficar, de explorar, de comprar.</p>
-                    <p class="about-p2">A Von nasceu pra isso. Pra transformar negócio de verdade em presença digital de
-                        verdade.</p>
+        <!-- SEÇÃO 1: HERO -->
+        <section id="hero" class="hero sales-hero">
+            <div class="hero-grid-overlay"></div>
+            <div class="hero-topbar">
+                <div class="hero-logo-mark">
+                    <img src="/favicon.png" alt="VON LAB" style="width: 32px; height: 32px;">
                 </div>
-                <div class="about-image">
-                    <div class="image-wrapper">
-                        <img src="/assets/about-man.png"
-                            alt="Mascote Von Lab - Ilustração de astronauta representando exploração e inovação digital">
-                        <span class="bg-signature">Von Neumann</span>
-                    </div>
+            </div>
+
+            <div class="hero-content-centered">
+                <span class="hero-eyebrow">Sua presença digital começa aqui.</span>
+                <h1 class="hero-title-main">
+                    Criamos sites para <span class="accent-pink">pequenas empresas</span> e <span
+                        class="accent-pink">autônomos</span> que querem ser encontrados.
+                </h1>
+                <p class="hero-subtitle-main">
+                    Passe confiança e venda mais pelo celular ou computador.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contato" class="btn-solid-pink">Quero um site</a>
+                    <a href="#portfolio" class="btn-outline-white">Ver exemplos</a>
                 </div>
             </div>
         </section>
 
-        <!-- 4. SERVIÇOS -->
-        <section id="servicos" class="services">
-            <div class="services-header">
-                <img src="/assets/claw.png" alt="Braço robótico simbolizando a precisão técnica da Von Lab"
-                    class="services-icon">
-                <h2 class="section-title">O que entregamos</h2>
-            </div>
-            <div class="services-list">
-                <div class="service-row">
-                    <span class="s-num">01</span>
-                    <span class="s-name">Sites Institucionais</span>
-                    <span class="s-desc">Presença digital de alta autoridade para marcas que buscam ser
-                        lembradas.</span>
+        <!-- SEÇÃO 2: DOR -->
+        <section id="sec-pain" class="section-pain-2">
+            <div class="container pain-2-grid">
+                <div class="pain-2-left">
+                    <div class="abstract-device-phone">
+                        <div class="phone-screen">
+                            <div class="phone-header"></div>
+                            <div class="phone-body">
+                                <div class="p-block"></div>
+                                <div class="p-block short"></div>
+                                <div class="p-block pink"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="service-row">
-                    <span class="s-num">02</span>
-                    <span class="s-name">E-commerces e Catálogos</span>
-                    <span class="s-desc">Experiência de compra fluida com foco total em conversão e
-                        exclusividade.</span>
-                </div>
-                <div class="service-row">
-                    <span class="s-num">03</span>
-                    <span class="s-name">Landing Pages</span>
-                    <span class="s-desc">Páginas de alta performance focadas em converter tráfego em resultado
-                        puro.</span>
-                </div>
-                <div class="service-row">
-                    <span class="s-num">04</span>
-                    <span class="s-name">Aplicações Sob Medida</span>
-                    <span class="s-desc">Sistemas e ferramentas personalizadas que resolvem problemas reais.</span>
+                <div class="pain-2-right">
+                    <h2 class="section-title">Se o cliente precisa pensar demais para confiar, <span
+                            class="accent-pink">ele não compra.</span></h2>
+                    <p class="section-desc">A primeira impressão do seu negócio acontece online. Antes de chamar no
+                        WhatsApp, o cliente observa seu site, suas redes e a forma como sua marca se apresenta.</p>
+                    <div class="pain-box">
+                        <p>"Isso parece profissional?"</p>
+                        <p>"Posso confiar?"</p>
+                        <p>"Vale a pena falar com essa empresa?"</p>
+                    </div>
+                    <p class="section-desc-bold">Se essa resposta não for imediata, o cliente simplesmente sai.</p>
                 </div>
             </div>
         </section>
 
-        <!-- 6. PROJETOS -->
-        <section id="trabalho" class="portfolio">
-            <canvas id="topo-canvas"></canvas>
-            <h2 class="section-label">Projetos</h2>
-            <div class="portfolio-grid">
-                <!-- Projeto Vision MD -->
-                <div class="p-item" data-title="Vision MD"
-                    data-desc="Plataforma de avaliações de fornecedores para a indústria de celulose, otimizando a cadeia de suprimentos com dados precisos."
-                    data-img="/assets/vision-md.png" data-link="https://visionmd.com.br/">
-                    <img src="/assets/vision-md.png" alt="Vision MD">
-                    <div class="p-overlay">
-                        <h3 class="p-title">Vision MD</h3>
-                        <span class="p-link">Ver detalhes →</span>
+        <!-- SEÇÃO 3 & 4: IMPORTÂNCIA E DIFERENCIAIS -->
+        <section id="sec-importance" class="section-importance">
+            <div class="container importance-top">
+                <h2 class="section-title">A forma como seu negócio é apresentado define <span
+                        class="accent-highlight">quanto você vende.</span></h2>
+                <p class="section-desc">Se sua presença não transmite valor e confiança, você perde clientes antes do
+                    primeiro contato. A Von resolve isso com sites estratégicos que transformam visitantes em clientes.
+                </p>
+            </div>
+
+            <div class="diff-cards-wrapper">
+                <div class="container diff-cards-container">
+                    <div class="diff-card">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </div>
+                        <h3>Aparece no Google</h3>
+                        <p>Quando alguém busca o que você vende, você é encontrado.</p>
+                    </div>
+                    <div class="diff-card">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="8" r="7"></circle>
+                                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Passa credibilidade</h3>
+                        <p>Visual profissional que gera confiança imediata.</p>
+                    </div>
+                    <div class="diff-card">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                            </svg>
+                        </div>
+                        <h3>Funciona no celular</h3>
+                        <p>Experiência perfeita onde seu cliente realmente está.</p>
+                    </div>
+                    <div class="diff-card">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3>Contatos no WhatsApp</h3>
+                        <p>Caminho livre e direto para o seu atendimento.</p>
+                    </div>
+                    <div class="diff-card">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Disponível 24h</h3>
+                        <p>Sua empresa aberta mesmo quando você está ocupado.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Project Viewer (Sub-página Modal) -->
-        <div id="project-viewer" class="project-viewer">
-            <div id="viewer-overlay" class="viewer-overlay"></div>
-            <div id="viewer-container" class="viewer-container">
-                <button id="viewer-close" class="viewer-close">FECHAR [X]</button>
-                <div class="viewer-content">
-                    <div class="viewer-media">
-                        <img id="viewer-img" src="" alt="Project Preview">
-                    </div>
-                    <div class="viewer-info">
-                        <h2 id="viewer-title">Nome do Projeto</h2>
-                        <p id="viewer-desc">Descrição detalhada do projeto que explica o impacto e a solução entregue.
-                        </p>
-                        <a id="viewer-link" href="#" target="_blank" class="btn-solid">VER SITE →</a>
-                    </div>
+        <!-- SEÇÃO 5: SERVIÇOS -->
+        <section id="sec-services" class="section-services">
+            <div class="container">
+                <div class="services-header">
+                    <h2 class="section-title">Soluções pensadas para cada <span class="accent-pink">momento do seu
+                            negócio</span></h2>
                 </div>
-            </div>
-        </div>
-
-        <!-- TRANSITION: Wave Portfolio→CTA (top, mirrored) -->
-        <div class="wave-transition-top">
-            <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0,120 C360,0 1080,0 1440,120 L1440,0 L0,0 Z" fill="#ffffff" />
-            </svg>
-        </div>
-
-        <!-- 8. CTA FINAL -->
-        <section id="contato" class="final-cta festive">
-            <div class="cta-festive-container">
-                <div class="cta-text-wrapper">
-                    <h2>Seu site é a primeira impressão. <br> A gente garante que ela seja a última que precisam.</h2>
-                </div>
-                <div class="cta-action-wrapper">
-                    <a href="https://wa.link/lbt7x0" target="_blank" class="btn-solid btn-festive">Falar com a Von</a>
+                <div class="services-grid">
+                    <div class="service-card outlined" data-title="Sites Institucionais"
+                        data-desc="Apresente sua empresa de forma profissional. Mostre seus serviços, sua história e facilite o contato direto com o seu cliente.">
+                        <div class="sc-dot"></div>
+                        <h3>Sites Institucionais</h3>
+                        <p>Apresente sua empresa de forma profissional. Mostre seus serviços, sua história e facilite o
+                            contato do cliente.</p>
+                        <div class="desktop-tooltip">
+                            <p>Apresente sua empresa de forma profissional. Mostre seus serviços, sua história e
+                                facilite o contato direto com o seu cliente.</p>
+                        </div>
+                        <span class="tap-hint">Toque para ver detalhes</span>
+                    </div>
+                    <div class="service-card outlined" data-title="Landing Pages"
+                        data-desc="Uma página de alto impacto focada em uma única conversão estratégica: transformar visitantes curiosos em leads ou clientes prontos para comprar.">
+                        <div class="sc-dot"></div>
+                        <h3>Landing Pages</h3>
+                        <p>Uma página focada em uma coisa só: transformar quem visita em cliente. Ideal pra lançamentos,
+                            promoções e serviços específicos.</p>
+                        <div class="desktop-tooltip">
+                            <p>Uma página de alto impacto focada em uma única conversão estratégica: transformar
+                                visitantes curiosos em leads ou clientes prontos para comprar.</p>
+                        </div>
+                        <span class="tap-hint">Toque para ver detalhes</span>
+                    </div>
+                    <div class="service-card outlined" data-title="E-commerce"
+                        data-desc="Monte sua loja online sob medida. Um canal de vendas ativo 24h, integrado aos melhores meios de pagamento e focado em escala.">
+                        <div class="sc-dot"></div>
+                        <h3>E-commerce</h3>
+                        <p>Venda seus produtos online. Sua loja aberta todos os dias, recebendo pedidos enquanto você
+                            trabalha ou descansa.</p>
+                        <div class="desktop-tooltip">
+                            <p>Monte sua loja online sob medida. Um canal de vendas ativo 24h, integrado aos melhores
+                                meios de pagamento e focado em escala.</p>
+                        </div>
+                        <span class="tap-hint">Toque para ver detalhes</span>
+                    </div>
+                    <div class="service-card outlined" data-title="Aplicativos Web"
+                        data-desc="Acelere processos e crie sistemas robustos personalizados. Transformamos suas ideias e regras de negócio complexas em softwares fluidos e escaláveis.">
+                        <div class="sc-dot"></div>
+                        <h3>Aplicativos Web</h3>
+                        <p>Tem uma ideia ou processo que precisa virar um sistema? A gente constrói do zero, do MVP à
+                            solução completa.</p>
+                        <div class="desktop-tooltip">
+                            <p>Acelere processos e crie sistemas robustos personalizados. Transformamos suas ideias e
+                                regras de negócio complexas em softwares fluidos e escaláveis.</p>
+                        </div>
+                        <span class="tap-hint">Toque para ver detalhes</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- TRANSITION: Wave CTA→FAQ (bottom, black bg, white curve down) -->
-        <div class="wave-transition">
-            <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0,0 C360,120 1080,120 1440,0 L1440,120 L0,120 Z" fill="#ffffff" />
-            </svg>
-        </div>
+        <!-- SEÇÃO 6: NÚMEROS -->
+        <section id="sec-stats" class="section-stats">
+            <div class="container">
+                <div class="stats-top">
+                    <h2 class="section-title">O impacto de um site bem construído no seu negócio</h2>
+                    <p class="section-desc">Se seu site não transmite confiança e clareza, você perde clientes antes
+                        mesmo do contato. Um site estratégico muda isso e transforma visitas em vendas.</p>
+                </div>
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <span class="stat-number">75%</span>
+                        <span class="stat-text">julgam a credibilidade pelo visual</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">94%</span>
+                        <span class="stat-text">da primeira impressão vem do design</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">88%</span>
+                        <span class="stat-text">não voltam após má experiência</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">70%</span>
+                        <span class="stat-text">das pequenas empresas não têm site</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- FAQ -->
-        <section id="faq" class="faq">
-            <h2 class="faq-title">Perguntas Frequentes</h2>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <button class="faq-trigger">Qual o tempo médio de entrega de um projeto?<span
-                            class="faq-symbol">+</span></button>
-                    <div class="faq-content">
-                        <p class="faq-answer">Para sites institucionais e landing pages, nosso prazo médio de entrega é
-                            de 5 a 7 dias úteis. Já para projetos mais robustos, como e-commerces e aplicações
-                            personalizadas, o prazo mínimo é de 15 dias — garantindo que cada detalhe seja construído
-                            com a qualidade e a atenção que o seu negócio merece.</p>
+        <!-- SEÇÃO 7: PORTFÓLIO -->
+        <section id="portfolio" class="section-portfolio">
+            <div class="container">
+                <div class="portfolio-header">
+                    <h2 class="section-title">Projetos reais, <span class="accent-pink">resultados reais.</span></h2>
+                    <a href="https://wa.link/lbt7x0" target="_blank" class="btn-outline-white hide-mobile">Ver todos os
+                        projetos</a>
+                </div>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img src="/assets/vision-md.png" alt="Vision MD"
+                            onerror="this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80'">
+                        <div class="portfolio-overlay">
+                            <h4>Vision MD</h4>
+                            <span>Indústria & Dados</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="/assets/og-image.png" alt="Projeto 2"
+                            onerror="this.src='https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=800&q=80'">
+                        <div class="portfolio-overlay">
+                            <h4>VON Corporate</h4>
+                            <span>Landing Page</span>
+                        </div>
                     </div>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-trigger">Quais são as formas de pagamento?<span
-                            class="faq-symbol">+</span></button>
-                    <div class="faq-content">
-                        <p class="faq-answer">Trabalhamos com PIX e cartão de crédito para sua comodidade. As condições
-                            de parcelamento e prazos são alinhados diretamente durante a proposta, de forma transparente
-                            e sem surpresas.</p>
+                <div class="portfolio-action show-mobile">
+                    <a href="https://wa.link/lbt7x0" target="_blank" class="btn-outline-white">Ver todos os projetos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 8: PROCESSO -->
+        <section id="sec-process" class="section-process">
+            <div class="container process-grid">
+                <div class="process-left">
+                    <h2 class="section-title">Você não precisa entender de tecnologia. <span class="accent-pink">A gente
+                            cuida de tudo.</span></h2>
+                </div>
+                <div class="process-right">
+                    <div class="process-step">
+                        <span class="step-num">01</span>
+                        <p>Você conta o que precisa</p>
+                    </div>
+                    <div class="process-step">
+                        <span class="step-num">02</span>
+                        <p>A gente planeja a melhor solução</p>
+                    </div>
+                    <div class="process-step">
+                        <span class="step-num">03</span>
+                        <p>Criamos o design e desenvolvemos</p>
+                    </div>
+                    <div class="process-step">
+                        <span class="step-num">04</span>
+                        <p>Você aprova cada etapa</p>
+                    </div>
+                    <div class="process-step">
+                        <span class="step-num">05</span>
+                        <p>Publicamos e entregamos pronto pra usar</p>
                     </div>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-trigger">Quanto custa um projeto com a Von?<span
-                            class="faq-symbol">+</span></button>
-                    <div class="faq-content">
-                        <p class="faq-answer">Nossos projetos de sites institucionais e landing pages partem de R$
-                            1.000. Aplicações personalizadas têm investimento a partir de R$ 3.000, enquanto e-commerces
-                            completos iniciam em R$ 4.000. Esses valores podem variar de acordo com a complexidade do
-                            design e as funcionalidades desejadas — por isso, cada orçamento é feito sob medida para o
-                            seu projeto.</p>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 9: INVESTIMENTO -->
+        <section id="contato" class="section-investment">
+            <div class="container investment-grid">
+                <div class="investment-left">
+                    <span class="hero-eyebrow">Investimento</span>
+                    <h2 class="section-title">Cada projeto é feito sob medida.</h2>
+                    <p class="section-desc">Sem pacote engessado. Sem cobrar por coisa que você não vai usar.</p>
+
+                    <div class="investment-card-cta">
+                        <div class="ic-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="12 2 2 7 12 12 22 7 12 2"></polyline>
+                                <polyline points="2 17 12 22 22 17"></polyline>
+                                <polyline points="2 12 12 17 22 12"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Soluções para o seu negócio</h3>
+                        <p>Desenvolvemos soluções digitais pensadas para melhorar a presença online, transmitir
+                            confiança e transformar visitantes em clientes reais.</p>
+                        <a href="https://wa.link/lbt7x0" target="_blank" class="btn-solid-pink">Fale com a Von ↗</a>
                     </div>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-trigger">Preciso fornecer o conteúdo ou vocês criam?<span
-                            class="faq-symbol">+</span></button>
-                    <div class="faq-content">
-                        <p class="faq-answer">Fique tranquilo — se você já possui textos, imagens e materiais, nós os
-                            integramos ao projeto com todo o cuidado. Caso não tenha, nossa equipe cuida da criação
-                            completa do conteúdo, desde a redação até a seleção visual, para que o resultado final seja
-                            coeso e profissional do início ao fim.</p>
+                <div class="investment-right">
+                    <div class="vertical-tabs-wrapper">
+                        <div class="vertical-tab">Landing Pages</div>
+                        <div class="vertical-tab">Sites Institucionais</div>
+                        <div class="vertical-tab">E-commerces</div>
+                        <div class="vertical-tab">Aplicativos Web</div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 10: FAQ -->
+        <section id="sec-faq" class="section-faq">
+            <div class="container">
+                <h2 class="section-title" style="text-align: center; margin-bottom: 4rem;">Dúvidas frequentes</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <button class="faq-trigger">Preciso entender de tecnologia?<span
+                                class="faq-icon">+</span></button>
+                        <div class="faq-content">
+                            <p class="faq-answer">Não. Você foca no seu negócio, a gente cuida de tudo. Nosso processo é
+                                feito para que você não tenha dores de cabeça técnicas.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-trigger">Quanto tempo leva pra ficar pronto?<span
+                                class="faq-icon">+</span></button>
+                        <div class="faq-content">
+                            <p class="faq-answer">Depende do projeto. Sites institucionais e Landing Pages simples ficam
+                                prontos em média entre 1 a 2 semanas após o planejamento.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-trigger">Vou conseguir mexer no site depois?<span
+                                class="faq-icon">+</span></button>
+                        <div class="faq-content">
+                            <p class="faq-answer">Sim. Entregamos tudo configurado e te ensinamos a fazer alterações
+                                básicas, como trocar textos e imagens, de forma intuitiva.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-trigger">Vocês fazem sites pra qualquer tipo de negócio?<span
+                                class="faq-icon">+</span></button>
+                        <div class="faq-content">
+                            <p class="faq-answer">Sim. Já atendemos advogados, clínicas, indústrias, comércio local e
+                                startups. O design é sempre adaptado ao seu nicho e público.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-trigger">Como funciona o pagamento?<span class="faq-icon">+</span></button>
+                        <div class="faq-content">
+                            <p class="faq-answer">Trabalhamos com entrada no início do projeto e o restante na entrega
+                                final. Tudo com contrato, transparência e sem surpresas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA FINAL -->
+        <section id="sec-cta" class="section-cta-final">
+            <div class="container">
+                <h2 class="cta-final-title">Seu próximo cliente pode estar te pesquisando agora.</h2>
+                <a href="https://wa.link/lbt7x0" target="_blank" class="btn-solid-pink cta-final-btn">Falar com a
+                    Von</a>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
         <div class="footer-top">
             <div class="f-logo">
@@ -222,16 +429,29 @@
             </div>
             <div class="f-nav">
                 <a href="#hero">Início</a>
-                <a href="#servicos">Serviços</a>
-                <a href="#trabalho">Projetos</a>
+                <a href="#portfolio">Projetos</a>
+                <a href="#contato">Investimento</a>
                 <a href="https://wa.link/lbt7x0" target="_blank">Contato</a>
             </div>
         </div>
         <div class="footer-bottom">
-            Von Lab © 2025 — Controlled Chaos.
+            Von Lab © 2026 — Sites de Alta Conversão.
         </div>
     </footer>
 
+    <!-- Mobile Bottom Sheet Drawer for Services -->
+    <div id="mobile-service-drawer" class="mobile-drawer">
+        <div class="drawer-overlay"></div>
+        <div class="drawer-content">
+            <div class="drawer-handle"></div>
+            <div class="drawer-body">
+                <!-- Content injected dynamically -->
+            </div>
+            <button class="drawer-close-btn">&times;</button>
+        </div>
+    </div>
+
+    <!-- Main Module JS -->
     <script type="module" src="/src/main.js"></script>
 </body>
 

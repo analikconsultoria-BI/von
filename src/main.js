@@ -17,86 +17,45 @@ const initVonLab = () => {
         });
     }
 
-    // 2. Particle Hero
-    const initParticleHero = () => {
-        const canvas = document.getElementById('hero-canvas');
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        let W, H;
-        let mouse = { x: -9999, y: -9999 };
-        const particles = [];
-
-        const resize = () => {
-            W = canvas.width = window.innerWidth;
-            H = canvas.height = window.innerHeight;
-            buildText();
-        };
-
-        const buildText = () => {
-            particles.length = 0;
-            const off = document.createElement('canvas');
-            off.width = W; off.height = H;
-            const oCtx = off.getContext('2d');
-            const fontSize = W < 768 ? Math.floor(W * 0.22) : Math.floor(W * 0.14);
-            oCtx.font = `900 ${fontSize}px 'Montserrat', sans-serif`;
-            oCtx.fillStyle = 'white';
-            oCtx.textAlign = 'center';
-            oCtx.fillText('VON', W / 2, H * 0.35);
-            oCtx.fillText('LAB', W / 2, H * 0.35 + fontSize * 0.9);
-
-            const data = oCtx.getImageData(0, 0, W, H).data;
-            const step = W < 768 ? 4 : 3;
-            for (let y = 0; y < H; y += step) {
-                for (let x = 0; x < W; x += step) {
-                    if (data[(y * W + x) * 4] > 128) {
-                        particles.push({
-                            x: Math.random() * W, y: Math.random() * H,
-                            ox: x, oy: y,
-                            size: Math.random() * 1.5 + 0.5,
-                            speed: 0.05 + Math.random() * 0.05
-                        });
-                    }
-                }
-            }
-        };
-
-        document.addEventListener('mousemove', e => {
-            mouse.x = e.clientX;
-            mouse.y = e.clientY;
-        });
-
-        const draw = () => {
-            ctx.fillStyle = 'rgba(0,0,0,0.15)';
-            ctx.fillRect(0, 0, W, H);
-            particles.forEach(p => {
-                const dx = mouse.x - p.x;
-                const dy = mouse.y - p.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                const force = dist < 120 ? (120 - dist) / 120 : 0;
-                const mouseForce = force * 20;
-
-                p.x += (p.ox - p.x) * 0.1 - (dx / dist) * mouseForce;
-                p.y += (p.oy - p.y) * 0.1 - (dy / dist) * mouseForce;
-
-                ctx.fillStyle = 'white';
-                ctx.fillRect(p.x, p.y, p.size, p.size);
-            });
-            requestAnimationFrame(draw);
-        };
-
-        window.addEventListener('resize', resize);
-        resize(); draw();
-    };
 
     // 3. Hero Entrance
     const initHeroReveal = () => {
-        const subtitle = id('hero-subtitle');
-        const cta = id('hero-cta');
-        if (!subtitle) return;
+        const title = document.querySelector('.hero-title-main');
+        const subtitle = document.querySelector('.hero-subtitle-main');
+        const buttons = document.querySelector('.hero-buttons');
+        const preloader = document.querySelector('.von-preloader');
+        const preloaderLogo = document.querySelector('.von-preloader-logo');
 
-        const tl = gsap.timeline({ delay: 1.5 });
-        tl.to(subtitle, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' })
-            .to(cta, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }, "-=0.5");
+        // Lock scroll during preloader
+        document.body.style.overflow = 'hidden';
+
+        const tl = gsap.timeline();
+
+        if (preloader && preloaderLogo) {
+            tl.fromTo(preloaderLogo, 
+                { opacity: 0, scale: 0.3, filter: 'blur(30px)' }, 
+                { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 1.5, ease: 'power2.out' }
+            )
+            .to(preloaderLogo, { scale: 15, opacity: 0, filter: 'blur(10px)', duration: 0.8, ease: 'power4.in', delay: 0.6 })
+            .to(preloader, { 
+                opacity: 0, 
+                duration: 0.4, 
+                ease: 'power2.inOut', 
+                onComplete: () => {
+                    preloader.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
+            }, "-=0.2");
+            
+            if (title) tl.fromTo(title, {opacity: 0, y: 30}, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' });
+            if (subtitle) tl.fromTo(subtitle, {opacity: 0, y: 20}, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }, "-=0.7");
+            if (buttons) tl.fromTo(buttons, {opacity: 0, y: 20}, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }, "-=0.7");
+        } else {
+            document.body.style.overflow = '';
+            if (title) tl.fromTo(title, {opacity: 0, y: 30}, { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 1.5 });
+            if (subtitle) tl.fromTo(subtitle, {opacity: 0, y: 20}, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }, "-=0.7");
+            if (buttons) tl.fromTo(buttons, {opacity: 0, y: 20}, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }, "-=0.7");
+        }
     };
 
     // 4. Smooth Reveals
@@ -228,14 +187,84 @@ const initVonLab = () => {
         });
     };
 
+    // 10. Mobile bottom drawer for services
+    const initServicesDrawer = () => {
+        const cards = document.querySelectorAll('.service-card');
+        const drawer = document.getElementById('mobile-service-drawer');
+        if (!drawer) return;
+        const overlay = drawer.querySelector('.drawer-overlay');
+        const closeBtn = drawer.querySelector('.drawer-close-btn');
+        const body = drawer.querySelector('.drawer-body');
+
+        const openDrawer = (title, desc) => {
+            if (window.innerWidth >= 768) return; // Only run on mobile
+            body.innerHTML = `
+                <h3>${title}</h3>
+                <p>${desc}</p>
+                <a href="https://wa.link/lbt7x0" target="_blank" class="btn-solid-pink">Solicitar Orçamento ↗</a>
+            `;
+            drawer.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Lock background scroll
+        };
+
+        const closeDrawer = () => {
+            drawer.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scroll
+        };
+
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                if (window.innerWidth >= 768) return;
+                const title = card.getAttribute('data-title');
+                const desc = card.getAttribute('data-desc');
+                openDrawer(title, desc);
+            });
+        });
+
+        if (overlay) overlay.addEventListener('click', closeDrawer);
+        if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+    };
+
+    // 11. Scroll Dots Navigation
+    const initScrollDots = () => {
+        const dots = document.querySelectorAll('.scroll-dot');
+        const sectionIds = ['hero','sec-pain','sec-importance','sec-services','sec-stats','portfolio','sec-process','contato','sec-faq','sec-cta'];
+
+        // Click to jump
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                const target = document.getElementById(sectionIds[i]);
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Observe which section is in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const idx = sectionIds.indexOf(entry.target.id);
+                    dots.forEach(d => d.classList.remove('active'));
+                    if (idx >= 0 && dots[idx]) dots[idx].classList.add('active');
+                }
+            });
+        }, { threshold: 0.5 });
+
+        sectionIds.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) observer.observe(el);
+        });
+    };
+
     function id(name) { return document.getElementById(name); }
 
-    initParticleHero();
+
     initHeroReveal();
     initScrollAnimations();
     initTopoMap();
     initProjectViewer();
     initFAQ();
+    initServicesDrawer();
+    initScrollDots();
 };
 
 window.onload = initVonLab;
