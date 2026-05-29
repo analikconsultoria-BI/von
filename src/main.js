@@ -23,39 +23,14 @@ const initVonLab = () => {
         const title = document.querySelector('.hero-title-main');
         const subtitle = document.querySelector('.hero-subtitle-main');
         const buttons = document.querySelector('.hero-buttons');
-        const preloader = document.querySelector('.von-preloader');
-        const preloaderLogo = document.querySelector('.von-preloader-logo');
 
-        // Lock scroll during preloader
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = '';
 
         const tl = gsap.timeline();
 
-        if (preloader && preloaderLogo) {
-            tl.fromTo(preloaderLogo,
-                { opacity: 0, scale: 0.3, filter: 'blur(30px)' },
-                { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 1.5, ease: 'power2.out' }
-            )
-                .to(preloaderLogo, { scale: 15, opacity: 0, filter: 'blur(10px)', duration: 0.8, ease: 'power4.in', delay: 0.6 })
-                .to(preloader, {
-                    opacity: 0,
-                    duration: 0.4,
-                    ease: 'power2.inOut',
-                    onComplete: () => {
-                        preloader.style.display = 'none';
-                        document.body.style.overflow = '';
-                    }
-                }, "-=0.2");
-
-            if (title) tl.fromTo(title, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' });
-            if (subtitle) tl.fromTo(subtitle, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }, "-=0.7");
-            if (buttons) tl.fromTo(buttons, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }, "-=0.7");
-        } else {
-            document.body.style.overflow = '';
-            if (title) tl.fromTo(title, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 1.5 });
-            if (subtitle) tl.fromTo(subtitle, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }, "-=0.7");
-            if (buttons) tl.fromTo(buttons, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }, "-=0.7");
-        }
+        if (title) tl.fromTo(title, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out' });
+        if (subtitle) tl.fromTo(subtitle, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }, "-=0.8");
+        if (buttons) tl.fromTo(buttons, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }, "-=0.8");
     };
 
     // 4. Smooth Reveals
@@ -192,7 +167,7 @@ const initVonLab = () => {
     // 11. Scroll Dots Navigation
     const initScrollDots = () => {
         const dots = document.querySelectorAll('.scroll-dot');
-        const sectionIds = ['hero', 'sec-pain', 'sec-importance', 'sec-services', 'sec-stats', 'portfolio', 'sec-process', 'contato', 'sec-faq', 'sec-cta'];
+        const sectionIds = ['hero', 'sec-services', 'portfolio', 'sec-process', 'contato', 'sec-orcamento', 'sec-faq'];
 
         // Click to jump
         dots.forEach((dot, i) => {
@@ -225,20 +200,20 @@ const initVonLab = () => {
     const initHeroRotation = () => {
         const texts = document.querySelectorAll('.rotating-text');
         if (!texts.length) return;
-        
+
         let currentIndex = 0;
-        
+
         setInterval(() => {
             const current = texts[currentIndex];
             current.classList.remove('active');
             current.classList.add('exit');
-            
+
             currentIndex = (currentIndex + 1) % texts.length;
-            
+
             const next = texts[currentIndex];
             next.classList.remove('exit');
             next.classList.add('active');
-            
+
             // Reset the previous exit element
             setTimeout(() => {
                 current.classList.remove('exit');
@@ -293,11 +268,31 @@ const initVonLab = () => {
         setTimeout(updateButtons, 150);
     };
 
+    // 10. Orcamento Form Submission
+    const initOrcamentoForm = () => {
+        const form = document.getElementById('form-orcamento');
+        if (!form) return;
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const nome = document.getElementById('form-nome').value;
+            const email = document.getElementById('form-email').value;
+            const whatsapp = document.getElementById('form-whatsapp').value;
+            const desc = document.getElementById('form-desc').value;
+
+            // Redirect to WhatsApp with pre-filled details for premium conversions
+            const message = `Olá VON! Gostaria de solicitar um orçamento:\n\n*Nome:* ${nome}\n*E-mail:* ${email}\n*WhatsApp:* ${whatsapp}\n*Descrição do Projeto:* ${desc}`;
+            const encoded = encodeURIComponent(message);
+            window.open(`https://wa.me/5514997398013?text=${encoded}`, '_blank');
+        });
+    };
+
     initHeroReveal();
     initScrollAnimations();
     initTopoMap();
     initProjectViewer();
     initFAQ();
+    initOrcamentoForm();
 
     initScrollDots();
     initHeroRotation();

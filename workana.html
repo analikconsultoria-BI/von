@@ -599,19 +599,28 @@
 
         tl.fromTo('.von-preloader-logo', { opacity: 0, scale: 0.3, filter: 'blur(30px)' },
             { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 1.5, ease: 'power2.out' }
-                        o('.von-preloader-logo', { scale: 15, opacity: 0, filter: 'blur(10px)', duration: 0.8, ease: 'power4.in', delay: 0.6 })
-                .to('.von-preloader', {
-                    opacity: 0
-                  duration: 0., ease: 'power2.inOu'                    onComplete: () = document.querySelector('.von-preloader').style.display = 'n                            document.body.style.overflo                                                      )
-                        .from('.hero-workana', {
-                            scale: 1.1, duration: 1.5, ease: 'power3.o            1")
-                                .from('[d                {
-                     40,
-                                    y: 0,
-                                    n: 1.2,
-                                    ger: 0.2,
-                                    e: 'power3.out'
-            }, "-=0.8");
+        )
+        .to('.von-preloader-logo', { scale: 15, opacity: 0, filter: 'blur(10px)', duration: 0.8, ease: 'power4.in', delay: 0.6 })
+        .to('.von-preloader', {
+            opacity: 0,
+            duration: 0.4,
+            ease: 'power2.inOut',
+            onComplete: () => {
+                const preloader = document.querySelector('.von-preloader');
+                if (preloader) preloader.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        }, "-=0.2")
+        .from('.hero-workana', {
+            scale: 1.1, duration: 1.5, ease: 'power3.out'
+        }, "-=0.8")
+        .from('[data-reveal]', {
+            opacity: 0,
+            y: 40,
+            duration: 1.2,
+            stagger: 0.2,
+            ease: 'power3.out'
+        }, "-=1.2");
 
                     // Parallax for images
                     gsap.utils.toArray('.project-image img').forEach(img => {
@@ -628,9 +637,13 @@
                     });
 
                     window.scrollToContact = () => {
-                        document.getElementById('contato').scrollIntoView({
-                            behav 's});
-        }
+                        const contactEl = document.getElementById('contato');
+                        if (contactEl) {
+                            contactEl.scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        }
+                    };
     </script>
 </body>
 
