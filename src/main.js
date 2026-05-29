@@ -273,17 +273,68 @@ const initVonLab = () => {
         const form = document.getElementById('form-orcamento');
         if (!form) return;
 
-        form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
+            
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            // Set loading/sending state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Enviando orçamento...';
+
             const nome = document.getElementById('form-nome').value;
             const email = document.getElementById('form-email').value;
             const whatsapp = document.getElementById('form-whatsapp').value;
             const desc = document.getElementById('form-desc').value;
 
-            // Redirect to WhatsApp with pre-filled details for premium conversions
-            const message = `Olá VON! Gostaria de solicitar um orçamento:\n\n*Nome:* ${nome}\n*E-mail:* ${email}\n*WhatsApp:* ${whatsapp}\n*Descrição do Projeto:* ${desc}`;
-            const encoded = encodeURIComponent(message);
-            window.open(`https://wa.me/5514997398013?text=${encoded}`, '_blank');
+            try {
+                const response = await fetch('https://formsubmit.co/ajax/analikconsultoria@gmail.com', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        Nome: nome,
+                        Email: email,
+                        WhatsApp: whatsapp,
+                        'Descrição do Projeto': desc
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Success state styling
+                    submitBtn.style.backgroundColor = '#28a745'; // Green success color
+                    submitBtn.style.borderColor = '#28a745';
+                    submitBtn.innerHTML = 'Orçamento enviado com sucesso! ✓';
+                    form.reset();
+                    
+                    setTimeout(() => {
+                        submitBtn.disabled = false;
+                        submitBtn.style.backgroundColor = '';
+                        submitBtn.style.borderColor = '';
+                        submitBtn.innerHTML = originalText;
+                    }, 4000);
+                } else {
+                    throw new Error(data.message || 'Erro no envio.');
+                }
+            } catch (error) {
+                console.error(error);
+                // Error state styling
+                submitBtn.style.backgroundColor = '#dc3545'; // Red error color
+                submitBtn.style.borderColor = '#dc3545';
+                submitBtn.innerHTML = 'Erro ao enviar. Tente novamente.';
+                submitBtn.disabled = false;
+                
+                setTimeout(() => {
+                    submitBtn.style.backgroundColor = '';
+                    submitBtn.style.borderColor = '';
+                    submitBtn.innerHTML = originalText;
+                }, 4000);
+            }
         });
     };
 
