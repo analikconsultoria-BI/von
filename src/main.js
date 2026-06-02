@@ -199,9 +199,22 @@ const initVonLab = () => {
     // Rotating Hero Capsule Text
     const initHeroRotation = () => {
         const texts = document.querySelectorAll('.rotating-text');
-        if (!texts.length) return;
+        const badge = document.querySelector('.hero-capsule-badge');
+        if (!texts.length || !badge) return;
 
         let currentIndex = 0;
+
+        const updateWidth = (index) => {
+            if (texts[index]) {
+                badge.style.width = texts[index].offsetWidth + 'px';
+            }
+        };
+
+        // Initialize width
+        updateWidth(currentIndex);
+        
+        // Update width on resize to handle responsive font changes
+        window.addEventListener('resize', () => updateWidth(currentIndex));
 
         setInterval(() => {
             const current = texts[currentIndex];
@@ -213,6 +226,8 @@ const initVonLab = () => {
             const next = texts[currentIndex];
             next.classList.remove('exit');
             next.classList.add('active');
+            
+            updateWidth(currentIndex);
 
             // Reset the previous exit element
             setTimeout(() => {

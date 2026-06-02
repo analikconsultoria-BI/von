@@ -533,12 +533,11 @@ h3,
 
 /* Badge (Blue Pill) */
 .hero-capsule-badge {
-    display: inline-grid;
+    display: inline-flex;
     position: relative;
     background-color: #0052ff;
     color: #ffffff;
     /* Explicitly white */
-    padding: 0 1.5rem;
     border-radius: 50px;
     margin: 0 0.4rem;
     vertical-align: middle;
@@ -547,29 +546,33 @@ h3,
     height: 1.35em;
     overflow: hidden;
     align-items: center;
-    justify-items: center;
+    justify-content: center;
     box-shadow: 0 10px 20px rgba(0, 82, 255, 0.4);
+    transition: width 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 .rotating-text {
-    grid-area: 1 / 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 100%);
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0 1.5rem;
     transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
     opacity: 0;
-    transform: translateY(100%);
     white-space: nowrap;
 }
 
 .rotating-text.active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate(-50%, -50%);
 }
 
 .rotating-text.exit {
     opacity: 0;
-    transform: translateY(-100%);
+    transform: translate(-50%, -150%);
 }
 
 /* Floating badge bottom right */
@@ -630,7 +633,7 @@ h3,
         font-size: 0.65rem;
     }
 
-    .hero-capsule-badge {
+    .rotating-text {
         padding: 0 1.2rem;
     }
 }
