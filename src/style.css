@@ -1410,6 +1410,8 @@ h3,
 
 .portfolio-grid-new {
     display: flex;
+    flex-direction: column;
+    gap: 3rem;
     justify-content: center;
     align-items: center;
     padding: 0 5%;
