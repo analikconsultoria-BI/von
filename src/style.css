@@ -564,8 +564,6 @@ h3,
     object-fit: cover;
     z-index: 1;
     border-radius: 24px;
-    /* Reservar espaço antes do vídeo carregar - evita CLS */
-    aspect-ratio: 16 / 9;
 }
 
 .hero-card-content {
