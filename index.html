@@ -21,6 +21,24 @@
     <meta property="twitter:title" content="VON LAB | Design & Desenvolvimento">
     <meta property="twitter:description" content="Especialistas em sites de alta performance e design que converte.">
     <meta property="twitter:image" content="https://vonlab.co/assets/og-image.png">
+    <!-- Schema.org / JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "VON LAB",
+      "url": "https://vonlab.co/",
+      "logo": "https://vonlab.co/favicon.png",
+      "description": "Especialistas em sites institucionais, e-commerces, landing pages de alta conversão, MVPs e aplicativos.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "BR"
+      },
+      "sameAs": [
+        "https://vonlab.co/"
+      ]
+    }
+    </script>
     <link rel="stylesheet" href="/src/style.css">
     <link rel="icon" type="image/png" href="/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
@@ -47,10 +65,17 @@
             <img src="/favicon.png" alt="VON LAB Logo" style="width: 48px; height: 48px; filter: invert(1);">
         </div>
         <nav class="header-nav">
-            <a href="#sec-services">Soluções</a>
-            <a href="#portfolio">Cases</a>
-            <a href="#sec-process">Processo</a>
-            <a href="#contato">Investimento</a>
+            <a href="/index.html">Início</a>
+            <div class="nav-dropdown">
+                <a href="/index.html#sec-services" style="cursor: pointer;">Soluções ▾</a>
+                <div class="nav-dropdown-content">
+                    <a href="/sites.html">Sites e Landing Pages</a>
+                    <a href="/ecommerce.html">E-commerce</a>
+                    <a href="/aplicativos.html">Aplicativos e SaaS</a>
+                </div>
+            </div>
+            <a href="/index.html#portfolio">Cases</a>
+            <a href="/index.html#sec-process">Processo</a>
         </nav>
         <div class="header-cta">
             <a href="#sec-orcamento" class="btn-outline-dark">Solicite um orçamento &rarr;</a>
@@ -175,6 +200,12 @@
                             </div>
                             <h3>Posicionamento estratégico</h3>
                             <p>Seu negócio apresentado da forma certa para atrair o cliente ideal.</p>
+                            <div class="diff-card-hover"
+                                style="--bg-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800');">
+                                <h3>Posicionamento estratégico</h3>
+                                <p>Criamos uma comunicação direcionada que eleva a percepção de valor da sua marca,
+                                    conectando-a diretamente com seu público e superando a concorrência.</p>
+                            </div>
                         </div>
                         <!-- Card 2 -->
                         <div class="diff-card">
@@ -188,6 +219,12 @@
                             </div>
                             <h3>Design que transmite confiança</h3>
                             <p>Visual profissional que gera credibilidade imediata.</p>
+                            <div class="diff-card-hover"
+                                style="--bg-image: url('https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=800');">
+                                <h3>Design de confiança</h3>
+                                <p>Aplicamos princípios de neurodesign e UI moderna para garantir que cada pixel
+                                    trabalhe a favor da sua autoridade, passando segurança máxima.</p>
+                            </div>
                         </div>
                         <!-- Card 3 -->
                         <div class="diff-card">
@@ -203,6 +240,12 @@
                             </div>
                             <h3>Comunicação clara e direta</h3>
                             <p>Mensagens objetivas que evitam dúvidas e prendem atenção.</p>
+                            <div class="diff-card-hover"
+                                style="--bg-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800');">
+                                <h3>Comunicação clara</h3>
+                                <p>Reduzimos ruídos. O copy e a arquitetura de informação guiam o usuário de forma
+                                    fluida, eliminando objeções antes que elas apareçam.</p>
+                            </div>
                         </div>
                         <!-- Card 4 -->
                         <div class="diff-card">
@@ -216,6 +259,12 @@
                             </div>
                             <h3>Estrutura pensada para conversão</h3>
                             <p>Cada seção guiando o visitante até a decisão.</p>
+                            <div class="diff-card-hover"
+                                style="--bg-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800');">
+                                <h3>Foco em conversão</h3>
+                                <p>O design não é apenas bonito, ele vende. Estruturamos gatilhos e CTAs de alta
+                                    performance no momento exato em que o usuário está pronto para agir.</p>
+                            </div>
                         </div>
                         <!-- Card 5 -->
                         <div class="diff-card">
@@ -230,6 +279,12 @@
                             </div>
                             <h3>Experiência intuitiva</h3>
                             <p>Navegação simples, rápida e sem fricção.</p>
+                            <div class="diff-card-hover"
+                                style="--bg-image: url('https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=800');">
+                                <h3>Experiência intuitiva</h3>
+                                <p>Otimizamos a performance técnica garantindo que seu cliente encontre o que busca
+                                    rapidamente e sem fricção, melhorando seus resultados.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -265,9 +320,10 @@
                         <div class="portfolio-info-new">
                             <div class="pi-header">
                                 <h4>Vision MD</h4>
-                                <span>Indústria & Dados</span>
+                                <span>MVP</span>
                             </div>
-                            <a href="https://visionmd.com.br" target="_blank" class="btn-outline-dark-new">Acessar Case &rarr;</a>
+                            <a href="https://visionmd.com.br" target="_blank" class="btn-outline-dark-new">Acessar Case
+                                &rarr;</a>
                         </div>
                     </div>
 
@@ -281,7 +337,23 @@
                                 <h4>KdoisK</h4>
                                 <span>E-commerce</span>
                             </div>
-                            <a href="https://kdoisk.com.br" target="_blank" class="btn-outline-dark-new">Acessar Case &rarr;</a>
+                            <a href="https://kdoisk.com.br" target="_blank" class="btn-outline-dark-new">Acessar Case
+                                &rarr;</a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item-new">
+                        <div class="portfolio-image-wrapper">
+                            <img src="/assets/portfolio-3.png" alt="Paveai Templates"
+                                onerror="this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80'">
+                        </div>
+                        <div class="portfolio-info-new">
+                            <div class="pi-header">
+                                <h4>Paveai Templates</h4>
+                                <span>Página de vendas</span>
+                            </div>
+                            <a href="https://paveaitemplates.com.br/" target="_blank" class="btn-outline-dark-new">Acessar Case
+                                &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -319,6 +391,71 @@
             </div>
         </section>
 
+
+        <!-- SEÇÃO 9: INVESTIMENTO -->
+        <section id="contato" class="section-investment">
+            <div class="container">
+                <div class="pricing-header">
+                    <span class="hero-eyebrow">Nossas Especialidades</span>
+                    <h2 class="section-title">Tecnologia e design para o <span class="accent-blue">seu negócio
+                            crescer</span></h2>
+                    <p class="section-desc">Desenvolvemos soluções robustas e personalizadas para cada etapa do seu
+                        projeto. Foco total em performance, conversão e resultados reais.</p>
+                </div>
+
+                <div class="services-showcase">
+                    <!-- Card 1: Sites e Portais -->
+                    <a href="/sites.html" class="showcase-card"
+                        style="--bg-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800');">
+                        <div class="sc-content">
+                            <span class="sc-eyebrow">Criação de</span>
+                            <h3 class="sc-title">Sites e Portais</h3>
+                        </div>
+                        <div class="sc-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                viewBox="0 0 24 24">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                    </a>
+
+                    <!-- Card 2: E-commerce -->
+                    <a href="/ecommerce.html" class="showcase-card"
+                        style="--bg-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800');">
+                        <div class="sc-content">
+                            <span class="sc-eyebrow">Desenvolvimento de</span>
+                            <h3 class="sc-title">E-commerce</h3>
+                        </div>
+                        <div class="sc-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                viewBox="0 0 24 24">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                    </a>
+
+                    <!-- Card 3: Aplicativos -->
+                    <a href="/aplicativos.html" class="showcase-card"
+                        style="--bg-image: url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800');">
+                        <div class="sc-content">
+                            <span class="sc-eyebrow">Desenvolvimento de</span>
+                            <h3 class="sc-title">Aplicativos</h3>
+                        </div>
+                        <div class="sc-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                viewBox="0 0 24 24">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+                <!-- Disclaimer removido pois os valores não são mais exibidos -->
+            </div>
+        </section>
+
         <!-- SEÇÃO 8: PROCESSO -->
         <section id="sec-process" class="section-process">
             <div class="container process-grid">
@@ -351,252 +488,6 @@
             </div>
         </section>
 
-        <!-- SEÇÃO 9: INVESTIMENTO -->
-        <section id="contato" class="section-investment">
-            <div class="container">
-                <div class="pricing-header">
-                    <span class="hero-eyebrow">Soluções & Planos</span>
-                    <h2 class="section-title">Valores transparentes para o <span class="accent-blue">seu negócio
-                            crescer</span></h2>
-                    <p class="section-desc">Escolha a solução ideal para o seu momento atual. Projetos focados em
-                        conversão e velocidade.</p>
-                </div>
-
-                <div class="pricing-grid">
-                    <!-- Plan 1: Landing Page -->
-                    <div class="pricing-card">
-                        <div class="pc-top">
-                            <span class="pc-badge-empty">&nbsp;</span>
-                            <h3 class="pc-title">Landing Page</h3>
-                            <p class="pc-desc">Uma página construída pra fazer uma coisa só, e fazer bem: transformar
-                                quem visita em cliente. Cada seção pensada pra eliminar dúvida e levar direto ao
-                                contato. Funciona para produtos, serviços e eventos.</p>
-                        </div>
-                        <div class="pc-middle">
-                            <div class="pc-price-box">
-                                <span class="pc-price-label">a partir de</span>
-                                <div class="pc-price-row">
-                                    <span class="pc-currency">R$</span>
-                                    <span class="pc-amount">800</span>
-                                </div>
-                                <span class="pc-period">/ início do projeto</span>
-                            </div>
-                            <div class="pc-time-box">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                    stroke="currentColor" class="pc-time-icon">
-                                    <circle cx="12" cy="12" r="10" />
-                                    <polyline points="12 6 12 12 16 14" />
-                                </svg>
-                                <span>Entrega em <strong>7 dias</strong></span>
-                            </div>
-                            <ul class="pc-features">
-                                <li>
-                                    <svg class="feature-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    <span>Design focado em conversão e vendas</span>
-                                </li>
-                                <li>
-                                    <svg class="feature-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    <span>Integração direta com WhatsApp</span>
-                                </li>
-                                <li>
-                                    <svg class="feature-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    <span>Experiência mobile impecável</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="pc-bottom">
-                            <a href="https://wa.link/lbt7x0" target="_blank" class="btn-outline-dark-new">Quero minha LP →</a>
-                        </div>
-                    </div>
-
-                    <!-- Plan 2: Site Institucional (Featured) -->
-                    <div class="pricing-card featured">
-                        <div class="pc-top">
-                            <span class="pc-badge">Mais procurado</span>
-                            <h3 class="pc-title">Site Institucional</h3>
-                            <p class="pc-desc">Sua empresa no digital do jeito que ela merece ser vista. Um site que
-                                apresenta, convence e abre caminho pro cliente entrar em contato sem hesitar.</p>
-                        </div>
-                        <div class="pc-middle">
-                            <div class="pc-price-box">
-                                <span class="pc-price-label">a partir de</span>
-                                <div class="pc-price-row">
-                                    <span class="pc-currency">R$</span>
-                                    <span class="pc-amount">1.500</span>
-                                </div>
-                                <span class="pc-period">/ início do projeto</span>
-                            </div>
-                            <div class="pc-time-box">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                    stroke="currentColor" class="pc-time-icon">
-                                    <circle cx="12" cy="12" r="10" />
-                                    <polyline points="12 6 12 12 16 14" />
-                                </svg>
-                                <span>Entrega em <strong>7 dias</strong></span>
-                            </div>
-                            <ul class="pc-features">
-                                <li>
-                                    <svg class="feature-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    <span>Estrutura de páginas premium</span>
-                                </li>
-                                <li>
-                                    <svg class="feature-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    <span>Otimização estratégica para Google (SEO)</span>
-                                </li>
-                                <li>
-                                    <svg class="feature-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    <span>Captação inteligente de leads</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="pc-bottom">
-                            <a href="https://wa.link/lbt7x0" target="_blank" class="btn-solid-blue-new">Quero meu Site →</a>
-                        </div>
-                    </div>
-
-                    <!-- Plan 3: E-commerce -->
-                    <div class="pricing-card">
-                        <div class="pc-top">
-                            <span class="pc-badge-empty">&nbsp;</span>
-                            <h3 class="pc-title">E-commerce</h3>
-                            <p class="pc-desc">Sua loja aberta todos os dias, vendendo enquanto você trabalha, descansa
-                                ou dorme. Com pagamento, frete e gestão integrados, pronto pra escalar.</p>
-                        </div>
-                        <div class="pc-middle">
-                            <div class="pc-price-box">
-                                <span class="pc-price-label">a partir de</span>
-                                <div class="pc-price-row">
-                                    <span class="pc-currency">R$</span>
-                                    <span class="pc-amount">4.000</span>
-                                </div>
-                                <span class="pc-period">/ início do projeto</span>
-                            </div>
-                            <div class="pc-time-box">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                    stroke="currentColor" class="pc-time-icon">
-                                    <circle cx="12" cy="12" r="10" />
-                                    <polyline points="12 6 12 12 16 14" />
-                                </svg>
-                                <span>Entrega em <strong>15 dias</strong></span>
-                            </div>
-                            <ul class="pc-features">
-                                <li>
-                                    <svg class="feature-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    <span>Checkout seguro com múltiplos pagamentos</span>
-                                </li>
-                                <li>
-                                    <svg class="feature-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    <span>Integração e logística automatizadas</span>
-                                </li>
-                                <li>
-                                    <svg class="feature-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    <span>Gestão unificada de pedidos e estoque</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="pc-bottom">
-                            <a href="https://wa.link/lbt7x0" target="_blank" class="btn-outline-dark-new">Quero minha Loja →</a>
-                        </div>
-                    </div>
-
-                    <!-- Plan 4: Aplicativo Web / MVP -->
-                    <div class="pricing-card">
-                        <div class="pc-top">
-                            <span class="pc-badge-empty">&nbsp;</span>
-                            <h3 class="pc-title">Aplicativo Web / MVP</h3>
-                            <p class="pc-desc">Tem uma idea que precisa sair do papel? A gente tira do zero e entrega
-                                funcionando. Do MVP inicial à solução completa, você vê resultado antes de investir
-                                tudo.</p>
-                        </div>
-                        <div class="pc-middle">
-                            <div class="pc-price-box">
-                                <span class="pc-price-label">a partir de</span>
-                                <div class="pc-price-row">
-                                    <span class="pc-currency">R$</span>
-                                    <span class="pc-amount">5.000</span>
-                                </div>
-                                <span class="pc-period">/ início do projeto</span>
-                            </div>
-                            <div class="pc-time-box">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                    stroke="currentColor" class="pc-time-icon">
-                                    <circle cx="12" cy="12" r="10" />
-                                    <polyline points="12 6 12 12 16 14" />
-                                </svg>
-                                <span>Prazo: <strong>sob consulta</strong></span>
-                            </div>
-                            <ul class="pc-features">
-                                <li>
-                                    <svg class="feature-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    <span>Área restrita e gestão avançada</span>
-                                </li>
-                                <li>
-                                    <svg class="feature-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    <span>Fluxos automatizados sob medida</span>
-                                </li>
-                                <li>
-                                    <svg class="feature-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    <span>Arquitetura escalável para crescer</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="pc-bottom">
-                            <a href="https://wa.link/lbt7x0" target="_blank" class="btn-outline-dark-new">Quero meu App →</a>
-                        </div>
-                    </div>
-                </div>
-                <p class="pricing-disclaimer">* Observação: Os valores exibidos são estimativas iniciais e podem variar de acordo com a complexidade, integrações específicas e o detalhamento de cada projeto.</p>
-            </div>
-        </section>
-
         <!-- SEÇÃO: ORÇAMENTO -->
         <section id="sec-orcamento" class="section-orcamento">
             <div class="container">
@@ -617,16 +508,20 @@
                             <div class="form-group-row">
                                 <div class="form-group">
                                     <label for="form-email">E-mail *</label>
-                                    <input type="email" id="form-email" name="email" placeholder="seu@email.com" required>
+                                    <input type="email" id="form-email" name="email" placeholder="seu@email.com"
+                                        required>
                                 </div>
                                 <div class="form-group">
                                     <label for="form-whatsapp">WhatsApp *</label>
-                                    <input type="tel" id="form-whatsapp" name="whatsapp" placeholder="(00) 00000-0000" required>
+                                    <input type="tel" id="form-whatsapp" name="whatsapp" placeholder="(00) 00000-0000"
+                                        required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="form-desc">Descrição do Projeto *</label>
-                                <textarea id="form-desc" name="descricao" rows="4" placeholder="Descreva brevemente sua ideia, objetivos e qual solução precisa (LP, Site, Loja ou MVP)." required></textarea>
+                                <textarea id="form-desc" name="descricao" rows="4"
+                                    placeholder="Descreva brevemente sua ideia, objetivos e qual solução precisa (LP, Site, Loja ou MVP)."
+                                    required></textarea>
                             </div>
                             <button type="submit" class="btn-solid-blue-new">Enviar Solicitação →</button>
                         </form>
@@ -636,13 +531,17 @@
                     <div class="orcamento-wa-card">
                         <div class="wa-card-content">
                             <div class="wa-icon-wrapper">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="wa-card-icon" fill="currentColor">
-                                    <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="wa-card-icon"
+                                    fill="currentColor">
+                                    <path
+                                        d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
                                 </svg>
                             </div>
                             <h3>Fale Conosco no WhatsApp</h3>
-                            <p>Prefere atendimento em tempo real por chat? Clique abaixo para iniciar uma conversa direta conosco.</p>
-                            <a href="https://wa.me/5514997398013?text=Olá!%20Vim%20pelo%20site%20da%20VON%20e%20gostaria%20de%20solicitar%20um%20orçamento%20de%20projeto." target="_blank" class="btn-wa-direct">
+                            <p>Prefere atendimento em tempo real por chat? Clique abaixo para iniciar uma conversa
+                                direta conosco.</p>
+                            <a href="https://wa.me/5514997398013?text=Olá!%20Vim%20pelo%20site%20da%20VON%20e%20gostaria%20de%20solicitar%20um%20orçamento%20de%20projeto."
+                                target="_blank" class="btn-wa-direct">
                                 Iniciar Conversa →
                             </a>
                         </div>
@@ -707,9 +606,9 @@
                 <img src="/favicon.png" alt="VON LAB Logo">
             </div>
             <div class="f-nav">
-                <a href="#hero">Início</a>
+                <a href="/index.html">Início</a>
                 <a href="#portfolio">Cases</a>
-                <a href="#contato">Investimento</a>
+                <a href="#contato">Especialidades</a>
                 <a href="https://wa.link/lbt7x0" target="_blank">Contato</a>
             </div>
         </div>

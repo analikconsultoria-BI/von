@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /workana.html
 
 Sitemap: https://vonlab.co/sitemap.xml

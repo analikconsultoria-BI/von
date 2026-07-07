@@ -204,17 +204,24 @@ const initVonLab = () => {
 
         let currentIndex = 0;
 
-        const updateWidth = (index) => {
-            if (texts[index]) {
-                badge.style.width = texts[index].offsetWidth + 'px';
+        const updateWidth = () => {
+            let maxWidth = 0;
+            texts.forEach(t => {
+                // We need to briefly ensure elements are measurable
+                // Though they are position: absolute, offsetWidth works if they are rendered
+                const w = t.offsetWidth;
+                if (w > maxWidth) maxWidth = w;
+            });
+            if (maxWidth > 0) {
+                badge.style.width = maxWidth + 'px';
             }
         };
 
-        // Initialize width
-        updateWidth(currentIndex);
+        // Initialize width (slight delay to ensure fonts loaded)
+        setTimeout(updateWidth, 100);
         
         // Update width on resize to handle responsive font changes
-        window.addEventListener('resize', () => updateWidth(currentIndex));
+        window.addEventListener('resize', updateWidth);
 
         setInterval(() => {
             const current = texts[currentIndex];
@@ -226,8 +233,6 @@ const initVonLab = () => {
             const next = texts[currentIndex];
             next.classList.remove('exit');
             next.classList.add('active');
-            
-            updateWidth(currentIndex);
 
             // Reset the previous exit element
             setTimeout(() => {
