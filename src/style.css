@@ -636,11 +636,13 @@ h3,
 
 .rotating-text.active {
     opacity: 1;
+    visibility: visible;
     transform: translate(-50%, -50%);
 }
 
 .rotating-text.exit {
     opacity: 0;
+    visibility: hidden;
     transform: translate(-50%, -150%);
 }
 
