@@ -221,7 +221,7 @@ const initVonLab = () => {
         setTimeout(updateWidth, 100);
         
         // Update width on resize to handle responsive font changes
-        window.addEventListener('resize', updateWidth);
+        window.addEventListener('resize', () => requestAnimationFrame(updateWidth));
 
         setInterval(() => {
             const current = texts[currentIndex];
@@ -281,8 +281,8 @@ const initVonLab = () => {
             });
         });
 
-        wrapper.addEventListener('scroll', updateButtons);
-        window.addEventListener('resize', updateButtons);
+        wrapper.addEventListener('scroll', () => requestAnimationFrame(updateButtons));
+        window.addEventListener('resize', () => requestAnimationFrame(updateButtons));
 
         // Initial setup
         setTimeout(updateButtons, 150);
