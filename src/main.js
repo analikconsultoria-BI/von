@@ -18,7 +18,7 @@ const initVonLab = () => {
     }
 
 
-    // 3. Hero Entrance (enhance only — element is visible by default)
+    // 3. Hero Entrance — opacity-only para evitar CLS (sem deslocamento de layout)
     const initHeroReveal = () => {
         const title = document.querySelector('.hero-title-main');
         const subtitle = document.querySelector('.hero-subtitle-main');
@@ -26,11 +26,9 @@ const initVonLab = () => {
 
         document.body.style.overflow = '';
 
-        // Only animate if element is not yet visible (first load)
-        const tl = gsap.timeline();
-        if (title) tl.fromTo(title, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', clearProps: 'all' });
-        if (subtitle) tl.fromTo(subtitle, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', clearProps: 'all' }, "-=0.5");
-        if (buttons) tl.fromTo(buttons, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', clearProps: 'all' }, "-=0.5");
+        if (title) gsap.fromTo(title, { opacity: 0 }, { opacity: 1, duration: 0.8, ease: 'power2.out', clearProps: 'all' });
+        if (subtitle) gsap.fromTo(subtitle, { opacity: 0 }, { opacity: 1, duration: 0.7, ease: 'power2.out', delay: 0.2, clearProps: 'all' });
+        if (buttons) gsap.fromTo(buttons, { opacity: 0 }, { opacity: 1, duration: 0.7, ease: 'power2.out', delay: 0.3, clearProps: 'all' });
     };
 
     // 4. Smooth Reveals
