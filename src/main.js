@@ -18,7 +18,7 @@ const initVonLab = () => {
     }
 
 
-    // 3. Hero Entrance
+    // 3. Hero Entrance (enhance only — element is visible by default)
     const initHeroReveal = () => {
         const title = document.querySelector('.hero-title-main');
         const subtitle = document.querySelector('.hero-subtitle-main');
@@ -26,11 +26,11 @@ const initVonLab = () => {
 
         document.body.style.overflow = '';
 
+        // Only animate if element is not yet visible (first load)
         const tl = gsap.timeline();
-
-        if (title) tl.fromTo(title, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out' });
-        if (subtitle) tl.fromTo(subtitle, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }, "-=0.8");
-        if (buttons) tl.fromTo(buttons, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }, "-=0.8");
+        if (title) tl.fromTo(title, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', clearProps: 'all' });
+        if (subtitle) tl.fromTo(subtitle, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', clearProps: 'all' }, "-=0.5");
+        if (buttons) tl.fromTo(buttons, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', clearProps: 'all' }, "-=0.5");
     };
 
     // 4. Smooth Reveals
@@ -219,9 +219,9 @@ const initVonLab = () => {
 
         // Initialize width (slight delay to ensure fonts loaded)
         setTimeout(updateWidth, 100);
-        
+
         // Update width on resize to handle responsive font changes
-        window.addEventListener('resize', () => requestAnimationFrame(updateWidth));
+        window.addEventListener('resize', updateWidth);
 
         setInterval(() => {
             const current = texts[currentIndex];
@@ -281,8 +281,8 @@ const initVonLab = () => {
             });
         });
 
-        wrapper.addEventListener('scroll', () => requestAnimationFrame(updateButtons));
-        window.addEventListener('resize', () => requestAnimationFrame(updateButtons));
+        wrapper.addEventListener('scroll', updateButtons);
+        window.addEventListener('resize', updateButtons);
 
         // Initial setup
         setTimeout(updateButtons, 150);
@@ -295,10 +295,10 @@ const initVonLab = () => {
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
+
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
-            
+
             // Set loading/sending state
             submitBtn.disabled = true;
             submitBtn.innerHTML = 'Enviando orçamento...';
@@ -331,7 +331,7 @@ const initVonLab = () => {
                     submitBtn.style.borderColor = '#28a745';
                     submitBtn.innerHTML = 'Orçamento enviado com sucesso! ✓';
                     form.reset();
-                    
+
                     setTimeout(() => {
                         submitBtn.disabled = false;
                         submitBtn.style.backgroundColor = '';
@@ -348,7 +348,7 @@ const initVonLab = () => {
                 submitBtn.style.borderColor = '#dc3545';
                 submitBtn.innerHTML = 'Erro ao enviar. Tente novamente.';
                 submitBtn.disabled = false;
-                
+
                 setTimeout(() => {
                     submitBtn.style.backgroundColor = '';
                     submitBtn.style.borderColor = '';
@@ -370,4 +370,9 @@ const initVonLab = () => {
     initDiffCardsCarousel();
 };
 
-window.onload = initVonLab;
+// Run on DOMContentLoaded (much earlier than window.onload)
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initVonLab);
+} else {
+    initVonLab();
+}
