@@ -1,62 +1,64 @@
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
-
 const initVonLab = () => {
-    // 1. Custom Cursor
-    const cursor = document.getElementById('custom-cursor');
-    if (cursor) {
-        document.addEventListener('mousemove', (e) => {
-            gsap.to(cursor, {
-                x: e.clientX,
-                y: e.clientY,
-                duration: 0.1,
-                ease: 'power2.out'
-            });
+    // Carregamento dinâmico do GSAP para otimização de performance (PageSpeed)
+    import('gsap').then(({ gsap }) => {
+        import('gsap/ScrollTrigger').then(({ ScrollTrigger }) => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // 1. Custom Cursor
+            const cursor = document.getElementById('custom-cursor');
+            if (cursor) {
+                document.addEventListener('mousemove', (e) => {
+                    gsap.to(cursor, {
+                        x: e.clientX,
+                        y: e.clientY,
+                        duration: 0.1,
+                        ease: 'power2.out'
+                    });
+                });
+            }
+
+            // 3. Hero Entrance — opacity-only para evitar CLS
+            const initHeroReveal = () => {
+                const title = document.querySelector('.hero-title-main');
+                const subtitle = document.querySelector('.hero-subtitle-main');
+                const buttons = document.querySelector('.hero-buttons');
+
+                document.body.style.overflow = '';
+
+                if (title) gsap.fromTo(title, { opacity: 0 }, { opacity: 1, duration: 0.8, ease: 'power2.out', clearProps: 'all' });
+                if (subtitle) gsap.fromTo(subtitle, { opacity: 0 }, { opacity: 1, duration: 0.7, ease: 'power2.out', delay: 0.2, clearProps: 'all' });
+                if (buttons) gsap.fromTo(buttons, { opacity: 0 }, { opacity: 1, duration: 0.7, ease: 'power2.out', delay: 0.3, clearProps: 'all' });
+            };
+
+            // 4. Smooth Reveals
+            const initScrollAnimations = () => {
+                const aboutText = document.querySelector('.about-content');
+                if (aboutText) {
+                    gsap.from(aboutText.children, {
+                        scrollTrigger: {
+                            trigger: '.about',
+                            start: 'top 70%'
+                        },
+                        opacity: 0, y: 30, duration: 1, stagger: 0.3, ease: 'power3.out'
+                    });
+                }
+
+                const diffItems = document.querySelectorAll('.diff-item');
+                diffItems.forEach((item, i) => {
+                    gsap.to(item, {
+                        scrollTrigger: {
+                            trigger: item,
+                            start: 'top 85%'
+                        },
+                        opacity: 1, x: 0, duration: 1, ease: 'power3.out', delay: i * 0.2
+                    });
+                });
+            };
+
+            initHeroReveal();
+            initScrollAnimations();
         });
-    }
-
-
-    // 3. Hero Entrance — opacity-only para evitar CLS (sem deslocamento de layout)
-    const initHeroReveal = () => {
-        const title = document.querySelector('.hero-title-main');
-        const subtitle = document.querySelector('.hero-subtitle-main');
-        const buttons = document.querySelector('.hero-buttons');
-
-        document.body.style.overflow = '';
-
-        if (title) gsap.fromTo(title, { opacity: 0 }, { opacity: 1, duration: 0.8, ease: 'power2.out', clearProps: 'all' });
-        if (subtitle) gsap.fromTo(subtitle, { opacity: 0 }, { opacity: 1, duration: 0.7, ease: 'power2.out', delay: 0.2, clearProps: 'all' });
-        if (buttons) gsap.fromTo(buttons, { opacity: 0 }, { opacity: 1, duration: 0.7, ease: 'power2.out', delay: 0.3, clearProps: 'all' });
-    };
-
-    // 4. Smooth Reveals
-    const initScrollAnimations = () => {
-        // About reveal
-        const aboutText = document.querySelector('.about-content');
-        if (aboutText) {
-            gsap.from(aboutText.children, {
-                scrollTrigger: {
-                    trigger: '.about',
-                    start: 'top 70%'
-                },
-                opacity: 0, y: 30, duration: 1, stagger: 0.3, ease: 'power3.out'
-            });
-        }
-
-        // Why differentiate items
-        const diffItems = document.querySelectorAll('.diff-item');
-        diffItems.forEach((item, i) => {
-            gsap.to(item, {
-                scrollTrigger: {
-                    trigger: item,
-                    start: 'top 85%'
-                },
-                opacity: 1, x: 0, duration: 1, ease: 'power3.out', delay: i * 0.2
-            });
-        });
-    };
+    });
 
     // 5. Topographic Background
     const initTopoMap = () => {
@@ -356,8 +358,7 @@ const initVonLab = () => {
         });
     };
 
-    initHeroReveal();
-    initScrollAnimations();
+
     initTopoMap();
     initProjectViewer();
     initFAQ();
